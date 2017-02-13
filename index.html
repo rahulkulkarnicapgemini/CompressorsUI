@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+	<title>IoT DashBoard</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<!-- Latest compiled and minified JQuery CSS -->
+    <link rel="stylesheet" href="app/lib/jquery-ui-1.12.1/jquery-ui.min.css">
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="app/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <!--application CSS -->
+    <link rel="stylesheet" href="app/css/app.css">
+	 <!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js" async defer></script>
+	<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL2JF_xwLFRf0oPLchVWc7r3QFtgLRoVM&callback=initMap"  type="text/javascript"></script>-->
+    <!-- jQuery & jQuery UIlibrary -->
+    <script type="text/javascript" src="app/lib/jq/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src = "app/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <!-- Latest compiled Bootstrap JavaScript -->
+    <script type="text/javascript" src="app/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<!--Canvas JS chart library -->
+	<script type="text/javascript" src="app/lib/canvasJS/canvasjs.min.js"></script>
+    <!-- Temp Gauge Library -->
+    <script type="text/javascript" src="app/plugins/tempGauge/jquery.tempgauge.js"></script>
+    <!-- Pressure Gauge JS - http://bernii.github.io/gauge.js/-->
+    <script type="text/javascript" src="app/plugins/pressureGauge/gauge.min.js"></script>
+</head>
+<body>
+	<!-- Header -->
+    <header class="headerbgCls">
+        <button type="button" class="menu-btn">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        <label class="headerTitleCls" id="headerTitleId"></label>
+		<button type="button" class="home-btn">
+          <span class="glyphicon glyphicon-home"></span>
+        </button>
+    </header>
+    <!-- Menu -->
+    <div id="siteMenuId" class="menuAccordianCls"></div>
+	<!-- Loading Spinner -->
+	<div id="wait" class="loaderCls"><img src='app/images/loader.gif' width="100" height="100" /><br>Loading..</div>
+    <!-- Container to hold partial views -->
+    <div class="mainContainerCls" id="mainViewContainerId"></div>
+    <!-- Footer -->
+    <footer class="footerbgCls">
+        <h5 class="footerTitleCls">© 2016 All rights reserved</h5>
+    </footer>
+	
+    <!--application JS -->
+    <script src="app/js/services.js"></script>
+	<script src="app/js/compressorDetailsView.js"></script>
+	<script src="app/js/siteDetailsView.js"></script>
+    <script src="app/js/siteOverviewView.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{  
+   "_id":"703e749bab77cd56c94a4b392ac5e497",
+   "_rev":"5-40cd37257a55abc89151579faf319f82",
+   "compressors":{ 
+	  "siteId":"S7",
+      "compressorId":"C13",
+      "compressorName":"Compressor 1.0",
+      "readyStatus":"Not Ready",
+	  "alarms":"Alarms Present",
+	  "loaded": "Unloaded",
+      "remote": "Enabled",
+      "warnings": "Warnings Absent",
+      "systemPressure": 108.96,
+      "oilPressure": 37.13,
+      "oilTemperature": 102.71,
+      "stage1Temperature": 160.81,
+      "stage1Vibration": 0.6,
+      "stage1Pressure": 35.05,
+      "stage2Temperature": 107.14,
+      "stage2Vibration": 1.28,
+      "stage2Pressure": 29.94
+   }
+}

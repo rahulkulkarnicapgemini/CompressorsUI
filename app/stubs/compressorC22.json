@@ -1,0 +1,23 @@
+{  
+   "_id":"703e749bab77cd56c94a4b392ac5e497",
+   "_rev":"5-40cd37257a55abc89151579faf319f82",
+   "compressors":{
+	  "siteId":"S8",
+      "compressorId":"C22",
+      "compressorName":"Compressor 2.1",
+      "readyStatus":"Ready",
+	  "alarms":"Alarms Absent",
+	  "loaded": "Loaded",
+      "remote": "Enabled",
+      "warnings": "Warnings Absent",
+      "systemPressure": 180,
+      "oilPressure": 37.13,
+      "oilTemperature": 102.71,
+      "stage1Temperature": 175.51,
+      "stage1Vibration": 0.6,
+      "stage1Pressure": 35.05,
+      "stage2Temperature": 96.7,
+      "stage2Vibration": 1.28,
+      "stage2Pressure": 29.94
+   }
+}

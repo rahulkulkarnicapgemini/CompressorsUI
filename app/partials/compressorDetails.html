@@ -1,0 +1,111 @@
+<!-- Compressor Details Screen-->
+<!-- Compressor Status container div-->
+<div class="compressorStatusContainerCls">
+	<div class="row compressorTitleCls">
+		<img class="infoWindowStatusCls" id="imgCompressorStatusId"/>&nbsp;&nbsp;
+		<label id="compressorTitleId"></label>
+	</div>
+	<div class="row compressorStatusDetailsCls">
+		<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 statusColCls">
+			<label>Ready Status</label><br>
+			<label class="statusLabelCls" id="chkReadyStatusId"></label>
+		</div>
+		<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 statusColCls">
+			<label>Remote</label><br>
+			<label class="statusLabelCls" id="chkRemoteId"></label>
+		</div>
+		<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 statusColCls">
+			<label>Loaded</label><br>
+			<label class="statusLabelCls" id="chkLoadedId"></label>
+		</div>
+		<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 statusColCls">
+			<label>Warnings</label><br>
+			<label class="statusLabelCls" id="chkWarningId"></label>
+		</div>	
+		<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 statusColCls">
+			<label>Alarms</label><br>
+			<label class="statusLabelCls" id="chkAlarmsId"></label>
+		</div>
+	</div>
+</div>
+<!-- Compressor Tab container div-->
+<div id="compressorDetailId">
+	<ul>
+		<li><a href="#compressorPropertyId">Properties</a></li>
+		<li><a href="#compressorOverviewId">Overview</a></li>
+		<li><a href="#compressorHistoryId">History</a></li>
+	</ul>
+	<!-- Compressor widget container div-->
+	<div id="compressorPropertyId">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 gaugeColCls">
+				<label class="gaugeLabelCls">System Pressure</label><br>
+				<canvas id="pressureGauge0" class="pressureGaugeCls"></canvas><br>
+				<label class="gaugeLabelCls" id="pressureGaugeLabelId"></label>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 gaugeColCls">
+				<label class="gaugeLabelCls">Stage 1 Temperature</label><br>
+				<div class="tempGauge0" id="tempGauge1LabelId"></div>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 gaugeColCls">
+				<label class="gaugeLabelCls">Stage 2 Temperature</label><br>
+				<div class="tempGauge1" id="tempGauge2LabelId"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Compressor table container div-->
+	<div id="compressorOverviewId">
+		<table class="compressorOverviewCls">
+		  <tr>
+			<td>System Pressure</td>
+			<td id="systemPressureTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Oil Pressure</td>
+			<td id="oilPressureTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Oil Temperature</td>
+			<td id="oilTempTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 1 Temperature</td>
+			<td id="stage1TempTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 1 Vibration</td>
+			<td id="stage1VibrationTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 1 Pressure</td>
+			<td id="stage1PressureTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 2 Temperature</td>
+			<td id="stage2TempTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 2 Vibration</td>
+			<td id="stage2VibrationTrId"></td>
+		  </tr>
+		  <tr>
+			<td>Stage 2 Pressure</td>
+			<td id="stage2PressureTrId"></td>
+		  </tr>
+		</table>
+	</div>
+	<!-- Compressor graph container div-->
+	<div id="compressorHistoryId">
+		<div class="dateRangeFieldsCls">
+			<h4><b>Select Date Range:</b></h4></br>
+			<label for="from">From</label>
+			<input type="text" id="from" name="from" class="dateRangeTextCls">
+			<label for="to" class="marginLeftCls">To</label>
+			<input type="text" id="to" name="to" class="dateRangeTextCls">
+			<button type="button" class="infoWindowBtnCls marginLeftCls" onclick="IoTDashboard.compressorDetailsView.onClickUpdateData()">Update Data</button>
+			<span class="glyphicon glyphicon-download-alt downloadCSVBtnCls" onclick="IoTDashboard.compressorDetailsView.onClickDownloadCSV()"></span>
+		</div>
+		<div id="chartContainerId" style="height:500px; width:100%; border: 1px solid gray; display:none"></div>
+		<table class="compressorPropertiesTbCls" id="compressorPropertiesTbId"></table>
+	</div>
+</div>
