@@ -20,7 +20,10 @@ if( getenv( "VCAP_SERVICES" ) )
     #
     $driver = "DRIVER={IBM DB2 ODBC DRIVER};";
     $conn_string = $driver . $dsn;     # Non-SSL
-    $conn_string = $driver . $ssl_dsn; # SSL
+    //$conn_string = $driver . $ssl_dsn; # SSL
+    
+    
+    echo($conn_string."<br />");
 
     $conn = db2_connect( $conn_string, "", "" );
     if( $conn )
