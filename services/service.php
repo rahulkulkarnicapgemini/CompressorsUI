@@ -5,37 +5,48 @@
 //Header for access
  header('Access-Control-Allow-Origin: *');
  
-$BaseURL = "https://a6a59714-f2ea-4b8d-bc41-e15f94fe5252-bluemix.cloudant.com"; //Database subscription.
+//echo("Connecting to a database"); 
 
 
+$database = "BLUDB";        # Get these database details from
+$hostname = "dashdb-entry-yp-dal09-07.services.dal.bluemix.net";  # the Connect page of the dashDB
+$user     = "dash10552";   # web console.
+$password = "7172e8f84cca";   #
+$port     = 50000;          #
+$ssl_port = 50001;          #
+    
+# Build the connection string
+#
+$driver  = "DRIVER={IBM DB2 ODBC DRIVER};";
+$dsn     = "DATABASE=$database; " .
+           "HOSTNAME=$hostname;" .
+           "PORT=$port; " .
+           "PROTOCOL=TCPIP; " .
+           "UID=$user;" .
+           "PWD=$password;";
+$ssl_dsn = "DATABASE=$database; " .
+           "HOSTNAME=$hostname;" .
+           "PORT=$ssl_port; " .
+           "PROTOCOL=TCPIP; " .
+           "UID=$user;" .
+           "PWD=$password;" .
+           "SECURITY=SSL;";
+$conn_string = $driver . $dsn;     # Non-SSL
+$conn_string = $driver . $ssl_dsn; # SSL
 
-$DefaultDB = "iotp_if34ew_compressors_2017-02";//Please implement logic to change this to current month.
+# Connect
+#
+$conn = odbc_connect( $conn_string, "", "" );
+if( $conn )
+{
+    echo "Connection succeeded.";
 
-
-
-  
- if($_GET["URL"]==null)
- {
-
-	//Default URL 
-	$url = $BaseURL."/".$DefaultDB; //Default Database
-	
- }
- else
- {
- 	$url = $_GET["URL"];
- 	
- }
- 
-
-  
- if($_GET["ALLDOCS"]=="TRUE")
- {
- 	$url =  $url ."/_all_docs"; 
- 	
- }
-
-//Set up call to the service
-$result = file_get_contents($url); 
-echo($result);
+    # Disconnect
+    #
+    odbc_close( $conn );
+}
+else
+{
+    echo "Connection failed.";
+}
 ?>
