@@ -1,61 +1,42 @@
-
-
-<?php 
-
-//Header for access
- header('Access-Control-Allow-Origin: *');
- 
-//echo("Connecting to a database"); 
-
-
-$database = "BLUDB";        # Get these database details from
-$hostname = "dashdb-entry-yp-dal09-07.services.dal.bluemix.net";  # the Connect page of the dashDB
-$user     = "dash10552";   # web console.
-$password = "7172e8f84cca";   #
-$port     = 50000;          #
-$ssl_port = 50001;          #
-    
-# Build the connection string
-#
-$driver  = "DRIVER={IBM DB2 ODBC DRIVER};";
-$dsn     = "DATABASE=$database; " .
-           "HOSTNAME=$hostname;" .
-           "PORT=$port; " .
-           "PROTOCOL=TCPIP; " .
-           "UID=$user;" .
-           "PWD=$password;";
-$ssl_dsn = "DATABASE=$database; " .
-           "HOSTNAME=$hostname;" .
-           "PORT=$ssl_port; " .
-           "PROTOCOL=TCPIP; " .
-           "UID=$user;" .
-           "PWD=$password;" .
-           "SECURITY=SSL;";
-$conn_string = $driver . $dsn;     # Non-SSL
-//$conn_string = $driver . $ssl_dsn; # SSL
-
-# Connect
-#
-
-$conn = odbc_connect( $conn_string, "", "");
-
-
-if($conn==null)
+<head>
+    <title>PHP Starter Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<?php
+if( getenv( "VCAP_SERVICES" ) )
 {
- echo("No Connection.");
-}
-
-
-if($conn)
-{
-    echo "Connection succeeded.";
-
-    # Disconnect
+    # Get database details from the VCAP_SERVICES environment variable
     #
-    odbc_close( $conn );
+    # *This can only work if you have used the Bluemix dashboard to 
+    # create a connection from your dashDB service to your PHP App.
+    #
+    $details  = json_decode( getenv( "VCAP_SERVICES" ), true );
+    $dsn      = $details [ "dashDB" ][0][ "credentials" ][ "dsn" ];
+    $ssl_dsn  = $details [ "dashDB" ][0][ "credentials" ][ "ssldsn" ];
+
+    # Build the connection string
+    #
+    $driver = "DRIVER={IBM DB2 ODBC DRIVER};";
+    $conn_string = $driver . $dsn;     # Non-SSL
+    $conn_string = $driver . $ssl_dsn; # SSL
+
+    $conn = db2_connect( $conn_string, "", "" );
+    if( $conn )
+    {
+        echo "<p>Connection succeeded.</p>";
+        db2_close( $conn );
+    }
+    else
+    {
+        echo "<p>Connection failed.</p>";
+    }
 }
 else
 {
-    echo "Connection failed.";
+    echo "<p>No credentials.</p>";
 }
 ?>
+</body>
+</html>
