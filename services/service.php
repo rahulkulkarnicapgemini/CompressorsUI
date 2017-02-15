@@ -36,16 +36,9 @@ $conn_string = $driver . $dsn;     # Non-SSL
 
 # Connect
 #
-try
-{
-   $conn = odbc_connect( $conn_string, "", "" );
-}
-catch($ex)
-{
- echo($ex->getMessage());
-}
+$conn = odbc_connect( $conn_string, "", "" );
 
-
+echo("here");
 
 if($conn)
 {
