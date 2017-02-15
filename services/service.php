@@ -22,7 +22,7 @@ if( getenv( "VCAP_SERVICES" ) )
     $conn_string = $driver . $dsn;     # Non-SSL
     //$conn_string = $driver . $ssl_dsn; # SSL
     
-    
+    echo($conn_string);
     //echo($conn_string."<br />");
 
     $conn = db2_connect( $conn_string, "", "" );
