@@ -33,13 +33,21 @@ $ssl_dsn = "DATABASE=$database; " .
            "SECURITY=SSL;";
 $conn_string = $driver . $dsn;     # Non-SSL
 //$conn_string = $driver . $ssl_dsn; # SSL
-echo($conn_string."<br/>"); 
 
 # Connect
 #
-$conn = odbc_connect( $conn_string, "", "" );
+try
+{
+   $conn = odbc_connect( $conn_string, "", "" );
+}
+catch($ex)
+{
+ echo($ex->getMessage());
+}
 
-if( $conn )
+
+
+if($conn)
 {
     echo "Connection succeeded.";
 
