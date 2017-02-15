@@ -37,8 +37,8 @@ $conn_string = $driver . $dsn;     # Non-SSL
 # Connect
 #
 
-//$conn = odbc_connect( $conn_string, "", "");
-$conn = db2_connect( $conn_string, "", "");
+$conn = odbc_connect( $conn_string, "", "");
+
 
 if($conn==null)
 {
