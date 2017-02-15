@@ -38,7 +38,7 @@ $conn_string = $driver . $dsn;     # Non-SSL
 #
 try
 {
-   $conn = odbc_connect( $conn_string, "", "" );
+   $conn = odbc_connect( $conn_string, $user, $password);
 }
 catch(Exception $e) 
 {
