@@ -27,21 +27,21 @@ if( getenv( "VCAP_SERVICES" ) )
 
     $conn = db2_connect( $conn_string, "", "" );
     
-   
-    
     if($conn)
     {
-        echo "<p>Connection succeeded.</p>";
-        db2_close( $conn );
+        echo("Connection Succeeded");
+        //echo "<p>Connection succeeded.</p>";
+        db2_close($conn);
     }
     else
     {
-        echo "<p>Connection failed.</p>";
+        echo("Connection Failed");
+        //echo "<p>Connection failed.</p>";
     }
 }
 else
 {
-    echo "<p>No credentials.</p>";
+    echo("<p>No credentials.</p>");
 }
 ?>
 </body>
