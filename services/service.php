@@ -23,9 +23,19 @@ if( getenv( "VCAP_SERVICES" ) )
     //$conn_string = $driver . $ssl_dsn; # SSL
     
     
-    //echo($conn_string);
-
-    $conn = db2_connect( $conn_string, "", "" );
+    echo($conn_string."<br />");
+    
+    try
+    {
+        echo("Creating connection Object <br/>");
+        $conn = db2_connect( $conn_string, "", "" );
+        echo("Created Connection Object");
+    }
+    catch(Exception $e) 
+    {
+        die("The connection error is ".$e.getMessage());
+    }
+        
     
     if($conn)
     {
