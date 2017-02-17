@@ -27,8 +27,8 @@ $conn_string = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=".
    ";";
 
 
-//echo($conn_string);
-
+echo($conn_string);
+/*
 //Connect to BlUDB 
 try
 {
@@ -37,7 +37,7 @@ try
 catch(Exception $ex) 
 {
     echo($ex->getMessage());
-}
+} */
 ?>
 
 
