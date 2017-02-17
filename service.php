@@ -13,7 +13,7 @@ if( getenv( "VCAP_SERVICES" ) )
   
   //Print the connection string
   echo($conn_string."<br />");   
-  
+  /*
   //Connect to the database
   $conn = db2_connect( $conn_string, "", "" );
   
@@ -32,6 +32,6 @@ else
     echo("NO Credentials");
 }
 
-
+*/
 
 ?>
