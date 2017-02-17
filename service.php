@@ -1,7 +1,7 @@
-<?phpo
+<?php
 
 //Get the connection Information 
-if( getenv( "VCAP_SERVICES" ) )
+if( getenv( "VCAP_SERVICES" ))
 {
     $details  = json_decode( getenv( "VCAP_SERVICES" ), true );
     $dsn      = $details [ "dashDB" ][0][ "credentials" ][ "dsn" ];
