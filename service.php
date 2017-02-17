@@ -26,7 +26,19 @@ $conn_string = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=".
    $bludb_config["password"].
    ";";
 
+//echo($conn_string);
 
-echo($conn_string);
+
+// connect to BLUDB
+$conn = db2_connect($conn_string, '', '');
+
+if ($conn) 
+{
+  echo("Connection Successful!");
+}
+else
+{
+  echo("Connection Failed!");
+}
 
 ?>
