@@ -32,13 +32,6 @@ $conn_string = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=".
 // connect to BLUDB
 $conn = db2_connect($conn_string, '', '');
 
-if ($conn) 
-{
-  echo("Connection Successful!");
-}
-else
-{
-  echo("Connection Failed!");
-}
+
 
 ?>
