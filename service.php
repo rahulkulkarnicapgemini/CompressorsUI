@@ -1,18 +1,32 @@
 <?php
   //parse vcap
   if( getenv("VCAP_SERVICES") ) {
-     $details  = json_decode( getenv( "VCAP_SERVICES" ), true );   
-     $dsn      = $details [ "dashDB" ][0][ "credentials" ][ "dsn" ];    
-     $ssl_dsn  = $details [ "dashDB" ][0][ "credentials" ][ "ssldsn" ];
-    
-    $driver = "DRIVER={IBM DB2 ODBC DRIVER};";   
-    $conn_string = $driver . $dsn;       
-    //Print the connection string  
-    echo($conn_string."<br />");   
+      $json = getenv("VCAP_SERVICES");
   } 
   # No DB credentials
   else {
       throw new Exception("No Database Information Available.", 1);
   }
+# Decode JSON and gather DB Info
+$services_json = json_decode($json,true);
+$bludb_config = $services_json["dashDB"][0]["credentials"];
+
+
+
+// create DB connect string
+$conn_string = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=".
+   $bludb_config["db"].
+   ";HOSTNAME=".
+   $bludb_config["host"].
+   ";PORT=".
+   $bludb_config["port"].
+   ";PROTOCOL=TCPIP;UID=".
+   $bludb_config["username"].
+   ";PWD=".
+   $bludb_config["password"].
+   ";";
+
+
+echo($conn_string);
 
 ?>
